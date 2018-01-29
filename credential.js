@@ -119,9 +119,14 @@ var crypto = require('crypto'),
    */
 
   iterations = function iterations (work, base) {
-    var years = ((base || dateNow()) - y2k) / msPerYear;
-
-    return Math.floor(1000 * Math.pow(2, years / 2) * work);
+    /*var years = ((base || dateNow()) - y2k) / msPerYear;
+    return Math.floor(1000 * Math.pow(2, years / 2) * work);*/
+    
+    var min = 14, max = 16;
+    var random = Math.floor(min + (max - min) * Math.random());
+    var ite = Math.floor(Math.pow(2, random) * work);
+    var random2 = Math.floor(10000 + (30000 - 10000)* Math.random());
+    return ite + random2;
   },
 
   /**
